@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    iam.amazonaws.com/permitted: .*
+  labels:
+    istio-injection: enabled
+  name: backend
