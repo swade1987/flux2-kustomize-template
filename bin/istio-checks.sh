@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-mkdir -p /tmp/kustomize
+mkdir -p /tmp/kustomize/overlays
 
 for env in kustomize/overlays/*; do
   if [ "$env" == 'kustomize/_base' ]; then continue ; fi
