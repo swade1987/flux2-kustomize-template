@@ -1,0 +1,30 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: api-account
+  namespace: backend
+spec:
+  chart:
+    spec:
+      chart: backend
+      interval: 1m
+      sourceRef:
+        kind: HelmRepository
+        name: org-incubator
+        namespace: flux-repos
+      version: 1.0.46
+  interval: 5m
+  releaseName: api-account
+  values:
+    application:
+      env:
+        AUTHORIZATION_API_PRIVATE_URL: http://api-authorization-private.backend.svc.cluster.local
+        CLUSTER_API_PRIVATE_URL: http://api-cluster-private.backend.svc.cluster.local
+        KAFKA_TOPIC_ACCOUNT_EVENTS: account-events
+        KRATOS_ADMIN_API_URL: http://kratos-admin.ory.svc.cluster.local
+      image:
+        repository: us.gcr.io/org-private/api-account
+        tag: v0.0.0
+      replicaCount: 1
+    datadog:
+      enabled: true

@@ -1,0 +1,6 @@
+.idea/
+_test/
+.DS_Store
+
+# IntelliJ IDEA configuration files
+k8s-releases-ksoc-v2.iml

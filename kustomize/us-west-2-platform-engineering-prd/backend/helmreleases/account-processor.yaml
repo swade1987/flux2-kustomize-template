@@ -1,0 +1,14 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: account-processor
+  namespace: backend
+spec:
+  values:
+    application:
+      env:
+        ENV: production
+        LOG_LEVEL: info
+      image:
+        tag: v0.1.71
+      replicaCount: 3

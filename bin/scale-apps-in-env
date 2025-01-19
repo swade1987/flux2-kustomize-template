@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+ENVIRONMENT=$1
+TARGET=$2
+
+function main {
+   find -L "kustomize/${ENVIRONMENT}" -regex ".*helmreleases.*\.yaml" -not -name "kustomization.yaml" -exec yq e -i ".spec.values.application.replicaCount = ${TARGET}" {} \;
+}
+
+main
