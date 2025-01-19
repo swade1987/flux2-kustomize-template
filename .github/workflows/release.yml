@@ -33,5 +33,13 @@ jobs:
         uses: cycjimmy/semantic-release-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # This will be 'true' for automated pushes to main, 'false' for manual workflow runs
-          IS_PRERELEASE: ${{ github.event_name == 'push' }}
+        with:
+          branches: |
+            [
+              'main',
+              {
+                name: 'main',
+                prerelease: 'rc',
+                channel: 'rc'
+              }
+            ]
