@@ -12,6 +12,8 @@ This is an opinionated Kustomize template to use as a starting point for new pro
     - Automated with GitHub Actions ([commit-lint](https://github.com/conventional-changelog/commitlint/#what-is-commitlint))
 - Pull Request titles must meet [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
     - Automated with GitHub Actions ([semantic-lint](https://github.com/amannn/action-semantic-pull-request))
+- Commits must be signed with [Developer Certificate of Origin (DCO)](https://developercertificate.org/)
+    - Automated with GitHub App ([DCO](https://github.com/apps/dco))
 
 ## Directory Structure
 
