@@ -15,6 +15,17 @@ This is an opinionated Kustomize template to use as a starting point for new pro
 - Pull Request titles must meet [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
     - Automated with GitHub Actions ([semantic-lint](https://github.com/amannn/action-semantic-pull-request)
 
+## Directory Structure
+
+```
+kustomize
+├── base                                      # Base Kustomize resources (non-cluster specific)
+│   └── backend
+└── overlays                                  # Cluster specific Kustomize overlays
+    ├── us-west-2-platform-engineering-prd
+    └── us-west-2-platform-engineering-sbx
+```
+
 ## Getting started
 
 Before working with the repository it is **mandatory** to execute the following command:

@@ -4,7 +4,7 @@ set -euo pipefail
 
 mkdir -p /tmp/kustomize
 
-for env in kustomize/*; do
+for env in kustomize/overlays/*; do
   if [ "$env" == 'kustomize/_base' ]; then continue ; fi
 
   printf "\nChecking %s\n" "${env#*/}"

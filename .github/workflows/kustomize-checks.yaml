@@ -78,7 +78,7 @@ jobs:
         uses: swade1987/github-action-kustomize-diff@v0.0.15
         with:
           root_dir: "./kustomize"
-          max_depth: "2"
+          max_depth: "3"
       - id: comment
         uses: actions/github-script@v7.0.1
         env:

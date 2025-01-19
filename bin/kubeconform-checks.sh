@@ -19,7 +19,7 @@ kubeconform_flags=("-skip=Secret")
 kubeconform_config=("-strict" "-ignore-missing-schemas" "-schema-location" "default" "-schema-location" "/tmp/flux-schemas" "-schema-location" "/tmp/kubernetes-schemas" "-verbose" "-output" "pretty" "-exit-on-error")
 
 function get_targets {
-  find kustomize -maxdepth 2 -name kustomization.yaml -exec dirname {} \; | sort
+  find kustomize -maxdepth 3 -name kustomization.yaml -exec dirname {} \; | sort
 }
 
 # Loop through each environment

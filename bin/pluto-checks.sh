@@ -15,7 +15,7 @@ KUBERNETES_MINOR_VERSION=$(kubectl version --client=true -o=json | jq -r '.clien
 PLUTO_VERSION=$(pluto version | sed 's/Version://' | awk '{print $1}')
 
 function get_targets {
-  find kustomize -maxdepth 2 -name kustomization.yaml -exec dirname {} \; | sort
+  find kustomize -maxdepth 3 -name kustomization.yaml -exec dirname {} \; | sort
 }
 
 # Loop through each environment

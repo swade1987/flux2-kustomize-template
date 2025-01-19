@@ -7,7 +7,7 @@ set -euo pipefail
 EXIT_CODE=0
 
 function get_targets {
-  find . -maxdepth 3 -name kustomization.yaml -exec dirname {} \;
+  find . -maxdepth 4 -name kustomization.yaml -exec dirname {} \;
 }
 
 for env in $(get_targets); do
