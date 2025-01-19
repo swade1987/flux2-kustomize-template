@@ -1,4 +1,4 @@
-name: semantic-lint
+name: pr-lint
 
 on:
   pull_request_target:
@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   lint:
-    name: semantic-lint
+    name: pr-lint
     runs-on: ubuntu-latest
     steps:
       - uses: amannn/action-semantic-pull-request@0723387faaf9b38adef4775cd42cfd5155ed6017 # v5
