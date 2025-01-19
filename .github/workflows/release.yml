@@ -1,12 +1,6 @@
-name: Create Release
+name: Create Pre-Release
 
 on:
-  workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch to create release from (usually main)'
-        required: true
-        default: 'main'
   push:
     branches:
       - main
@@ -39,7 +33,6 @@ jobs:
             [
               {
                 name: 'main',
-                prerelease: 'true',
-                channel: 'rc'
+                prerelease: true
               }
             ]
