@@ -13,7 +13,16 @@ This is an opinionated Kustomize template to use as a starting point for new pro
 - Commits must meet [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
     - Automated with GitHub Actions ([commit-lint](https://github.com/conventional-changelog/commitlint/#what-is-commitlint))
 - Pull Request titles must meet [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
-    - Automated with GitHub Actions ([semantic-lint](https://github.com/amannn/action-semantic-pull-request)
+    - Automated with GitHub Actions ([semantic-lint](https://github.com/amannn/action-semantic-pull-request))
+
+## Directory Structure
+
+```
+kustomize
+├── _base                               # Base Kustomize resources (non-cluster specific)
+├── us-west-2-platform-engineering-prd  # Kustomize overlays for specific cluster (prd)
+└── us-west-2-platform-engineering-sbx  # Kustomize overlays for specific cluster (sbx)
+```
 
 ## Getting started
 
@@ -23,7 +32,7 @@ Before working with the repository it is **mandatory** to execute the following 
 make initialise
 ```
 
-The above command will install the `pre-commit` package and setup pre-commit checks for this repository.
+The above command will install the `pre-commit` package and setup pre-commit checks for this repository including [conventional-pre-commit](https://github.com/compilerla/conventional-pre-commit) to make sure your commits match the conventional commit convention.
 
 ## How does this repository work?
 
