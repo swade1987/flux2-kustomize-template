@@ -12,7 +12,7 @@ spec:
         kind: HelmRepository
         name: org-incubator
         namespace: flux-repos
-      version: 1.0.46
+      version: 1.0.50
   interval: 5m
   releaseName: account-processor
   values:
