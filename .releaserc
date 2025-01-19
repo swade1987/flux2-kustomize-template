@@ -1,0 +1,9 @@
+plugins:
+  - "@semantic-release/github"
+  - "@semantic-release/commit-analyzer"
+  - "@semantic-release/release-notes-generator"
+  - "@semantic-release/changelog"
+  - "@semantic-release/git"
+branches:
+  - name: main
+    prerelease: ${process.env.IS_PRERELEASE === 'true' ? 'next' : false}
