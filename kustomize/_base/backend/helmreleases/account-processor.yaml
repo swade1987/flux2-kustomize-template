@@ -4,6 +4,16 @@ metadata:
   name: account-processor
   namespace: backend
 spec:
+  interval: 5m
+  timeout: 10m # The default is normally 5m
+  install:
+    timeout: 10m # The default is normally 5m
+    remediation:
+      retries: 3
+  upgrade:
+    timeout: 10m # The default is normally 5m
+    remediation:
+      retries: 3
   chart:
     spec:
       chart: backend
@@ -13,7 +23,6 @@ spec:
         name: org-incubator
         namespace: flux-repos
       version: 1.0.50
-  interval: 5m
   releaseName: account-processor
   values:
     application:
