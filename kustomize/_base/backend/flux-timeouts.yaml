@@ -4,9 +4,13 @@ kind: HelmRelease
 metadata:
   name: ignored-but-required
 spec:
-  interval: 5m
-  timeout: 10m # The default is normally 5m
+  interval: 10m
+  timeout: 3m
   install:
-    timeout: 10m # The default is normally 5m
+    timeout: 3m
+    remediation:
+      retries: 3
   upgrade:
-    timeout: 10m # The default is normally 5m
+    timeout: 3m
+    remediation:
+      retries: 3
