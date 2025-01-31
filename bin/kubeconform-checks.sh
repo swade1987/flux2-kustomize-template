@@ -11,7 +11,7 @@ for cmd in kubeconform yq kustomize kubectl jq; do
 done
 
 # Get kubernetes minor version via kubectl
-KUBERNETES_MINOR_VERSION=$(kubectl version --client=true -o=json | jq -r '.clientVersion.minor' | tr -d '+')
+KUBERNETES_VERSION=$(kubectl version --client=true -o=json | jq -r '.clientVersion.gitVersion')
 FLUX_VERSION=$(flux version --client | awk '{print $2}')
 
 # Configuration
@@ -24,7 +24,7 @@ function get_targets {
 
 # Loop through each environment
 for env in $(get_targets); do
-    printf "\n\nValidating kustomization in %s against Flux %s schemas and Kubernetes v1.%s.0 schemas\n" "${env#*/}" "${FLUX_VERSION}" "${KUBERNETES_MINOR_VERSION}"
+    printf "\n\nValidating kustomization in %s against Flux %s schemas and Kubernetes %s schemas\n" "${env#*/}" "${FLUX_VERSION}" "${KUBERNETES_VERSION}"
     kustomize build "${env}" | kubeconform "${kubeconform_flags[@]}" "${kubeconform_config[@]}"
 done
 
