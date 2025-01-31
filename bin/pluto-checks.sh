@@ -11,7 +11,7 @@ for cmd in yq pluto kustomize kubectl jq; do
 done
 
 # Get kubernetes minor version via kubectl
-KUBERNETES_MINOR_VERSION=$(kubectl version --client=true -o=json | jq -r '.clientVersion.minor' | tr -d '+')
+KUBERNETES_VERSION=$(kubectl version --client=true -o=json | jq -r '.clientVersion.gitVersion')
 PLUTO_VERSION=$(pluto version | sed 's/Version://' | awk '{print $1}')
 
 function get_targets {
@@ -20,8 +20,8 @@ function get_targets {
 
 # Loop through each environment
 for env in $(get_targets); do
-    printf "\n\nValidating %s for deprecations against Kubernetes version: v1.%s.0 using pluto: %s ... \n\n" "${env#*/}" "${KUBERNETES_MINOR_VERSION}" "${PLUTO_VERSION}"
-    kustomize build "${env}"| pluto detect -t "k8s=v${KUBERNETES_MINOR_VERSION}" --output=wide --no-footer -
+    printf "\n\nValidating %s for deprecations against Kubernetes version: %s using pluto: %s ... \n\n" "${env#*/}" "${KUBERNETES_VERSION}" "${PLUTO_VERSION}"
+    kustomize build "${env}"| pluto detect -t "k8s=${KUBERNETES_VERSION}" --output=wide --no-footer -
     printf "\n"
 done
 
