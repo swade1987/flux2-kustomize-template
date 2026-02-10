@@ -77,7 +77,7 @@ jobs:
         with:
           fetch-depth: 0
       - id: kustomize-diff
-        uses: swade1987/github-action-kustomize-diff@v0.2.0
+        uses: swade1987/github-action-kustomize-diff@v0.5.0
         with:
           root_dir: "./kustomize"
           max_depth: "2"
