@@ -21,7 +21,7 @@ function get_targets {
 # Loop through each environment
 for env in $(get_targets); do
     printf "\n\nValidating %s for deprecations against Kubernetes version: %s using pluto: %s ... \n\n" "${env#*/}" "${KUBERNETES_VERSION}" "${PLUTO_VERSION}"
-    kustomize build "${env}"| pluto detect -t "k8s=${KUBERNETES_VERSION}" --output=wide --no-footer -
+    kustomize build "${env}"| pluto detect -t "k8s=${KUBERNETES_VERSION}" --output=wide -
     printf "\n"
 done
 
