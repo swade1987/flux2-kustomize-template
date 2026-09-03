@@ -3,6 +3,11 @@ name: kustomize-checks
 on:
   pull_request:
 
+# Safe floor for any job that doesn't declare its own permissions; every
+# job below already declares its own anyway.
+permissions:
+  contents: read
+
 jobs:
 
   duplicate-release-name-checks:
@@ -77,7 +82,7 @@ jobs:
         with:
           fetch-depth: 0
       - id: kustomize-diff
-        uses: swade1987/github-action-kustomize-diff@v0.6.0
+        uses: swade1987/github-action-kustomize-diff@f9d6df0d7d6b907eced57dbbf15791ec3a08800f # v0.6.0
         with:
           root_dir: "./kustomize"
           max_depth: "2"
