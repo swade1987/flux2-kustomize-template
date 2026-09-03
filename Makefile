@@ -4,7 +4,7 @@ GOOS          ?= $(if $(TARGETOS),$(TARGETOS),linux)
 GOARCH        ?= $(if $(TARGETARCH),$(TARGETARCH),amd64)
 BUILDPLATFORM ?= $(GOOS)/$(GOARCH)
 
-TOOLKIT_IMAGE := eu.gcr.io/swade1987/kubernetes-toolkit:1.26.0
+TOOLKIT_IMAGE := eu.gcr.io/swade1987/kubernetes-toolkit:1.43.0
 KUSTOMIZE_VERSION := v5.8.1
 
 # ############################################################################################################
