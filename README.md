@@ -1,4 +1,5 @@
 [![kustomize-checks](https://github.com/swade1987/flux2-kustomize-template/actions/workflows/kustomize-checks.yaml/badge.svg)](https://github.com/swade1987/flux2-kustomize-template/actions/workflows/kustomize-checks.yaml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/swade1987/flux2-kustomize-template/badge)](https://scorecard.dev/viewer/?uri=github.com/swade1987/flux2-kustomize-template)
 
 # Flux Kustomize Template
 
